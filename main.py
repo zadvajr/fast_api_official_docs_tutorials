@@ -20,3 +20,9 @@ async def get_item(item_id):
 
 
 #Path parameters with type
+#You can declare the type of path parameters in the function using python standard type annotations
+@app.get("/books/{book_id}")
+async def get_book(book_id: int) -> dict:
+    return {
+        "book_id": book_id
+    }
