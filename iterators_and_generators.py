@@ -24,3 +24,29 @@ while True:
         print(fruits_iter.__next__())
     except StopIteration:
         break
+
+#Generators - this is an elegant way to create iterators
+def return_values():
+    yield 1
+    yield 2
+    yield 3
+    yield 'a'
+    yield 'b'
+    yield 'c'
+
+value = return_values()
+print(value.__next__())
+print(value.__next__())
+print(value.__next__())
+print(value.__next__())
+
+#infinite natural numbers
+def InfiniteNaturals():
+    start = 1
+    while start < 100:
+        yield start
+        start += 1
+
+numbers = InfiniteNaturals()
+for item in numbers:
+    print(item)
