@@ -3,6 +3,6 @@ fruits = ["apple", "banana", "cherry", "orange"]
 
 def process_items(items: list[str]) -> None:
     for item in items:
-        print(item)
+        print(item.upper())
 
 process_items(fruits)
