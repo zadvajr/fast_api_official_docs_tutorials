@@ -10,10 +10,9 @@
 
 #To declare a request body you make use of pydantic models with all their power and benefits.
 #To send data you should make use of one of POST(the most common), PUT, DELETE, PATCH
-
+# from uuid import uuid1
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
-from uuid import uuid1
 
 app = FastAPI()
 
@@ -27,13 +26,10 @@ class Item(BaseModel):
 
 @app.post('/items/', status_code=201)
 async def create_item(item: Item):
-    item['id'] = uuid1()
+    # item['id'] = uuid1()
     item_db.append(item)
     return {"message": "Item added successfully"}
 
 @app.get('/items/')
 async def get_items():
     return item_db
-
-def log_mid(request: Request, call_next):
-    pass
